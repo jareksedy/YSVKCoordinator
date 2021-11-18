@@ -39,7 +39,7 @@ class MainCoordinator: Coordinator {
     }
     
     private func createMainTabBarController() -> UIViewController {
-        let mainTabBarView = MainTabBarView()
+        let mainTabBarView = MainTabBarView(viewModel: loginViewModel)
         return UIHostingController(rootView: mainTabBarView)
     }
 }
