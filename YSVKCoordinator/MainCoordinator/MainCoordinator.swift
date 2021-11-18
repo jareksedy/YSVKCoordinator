@@ -21,26 +21,21 @@ class MainCoordinator: Coordinator {
     var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+        let loginView = VKLoginWebView(viewModel: loginViewModel)
+        let loginViewController = UIHostingController(rootView: loginView)
+        self.navigationController = UINavigationController(rootViewController: loginViewController)
     }
     
     func start() {
         loginViewModel.$isAuthorized.subscribe(on: RunLoop.main).sink { [weak self] isAuthorized in
             guard let self = self else { return }
-            
             if !isAuthorized {
-                let loginViewController = self.createLoginView()
-                self.navigationController.pushViewController(loginViewController, animated: false)
+                self.navigationController.popToRootViewController(animated: true)
             } else {
                 let mainTabBarView = self.createMainTabBarController()
-                self.navigationController.pushViewController(mainTabBarView, animated: false)
+                self.navigationController.pushViewController(mainTabBarView, animated: true)
             }
         }.store(in: &cancellables)
-    }
-    
-    private func createLoginView() -> UIViewController {
-        let loginViewController = VKLoginWebView()
-        return UIHostingController(rootView: loginViewController)
     }
     
     private func createMainTabBarController() -> UIViewController {

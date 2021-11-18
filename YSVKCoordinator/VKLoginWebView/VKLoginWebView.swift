@@ -9,11 +9,12 @@ import SwiftUI
 import WebKit
 
 struct VKLoginWebView: UIViewRepresentable {
-    @ObservedObject var loginViewModel = LoginViewModel()
-    fileprivate let navigationDelegate = WebViewNavigationDelegate()
+    @ObservedObject var viewModel: LoginViewModel
+    let navigationDelegate = WebViewNavigationDelegate()
     
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
+        navigationDelegate.viewModel = self.viewModel
         webView.navigationDelegate = navigationDelegate
         return webView
     }
@@ -31,13 +32,13 @@ struct VKLoginWebView: UIViewRepresentable {
         components.host = "oauth.vk.com"
         components.path = "/authorize"
         components.queryItems = [
-            URLQueryItem(name: "client_id", value: loginViewModel.cliendId),
+            URLQueryItem(name: "client_id", value: viewModel.cliendId),
             URLQueryItem(name: "scope", value: "270342"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "revoke", value: "1"),
-            URLQueryItem(name: "v", value: loginViewModel.version)
+            URLQueryItem(name: "v", value: viewModel.version)
         ]
         
         return components.url.map { URLRequest(url: $0) }
@@ -45,7 +46,7 @@ struct VKLoginWebView: UIViewRepresentable {
 }
 
 class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
-    @ObservedObject var loginViewModel = LoginViewModel()
+    var viewModel: LoginViewModel?
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         guard let url = navigationResponse.response.url,
@@ -75,9 +76,10 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
             return
         }
         
-        loginViewModel.token = token
-        loginViewModel.userId = userIdString
-        loginViewModel.isAuthorized = true
+        viewModel!.token = token
+        viewModel!.userId = userIdString
+        viewModel!.isAuthorized = true
+        print("AUTHORIZED!!! \(viewModel!.token)")
         
         decisionHandler(.cancel)
     }
