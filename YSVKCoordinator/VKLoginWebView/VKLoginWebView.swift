@@ -79,7 +79,6 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         viewModel!.token = token
         viewModel!.userId = userIdString
         viewModel!.isAuthorized = true
-        print("AUTHORIZED!!! \(viewModel!.token)")
         
         decisionHandler(.cancel)
     }
