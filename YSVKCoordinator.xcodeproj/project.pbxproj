@@ -13,6 +13,10 @@
 		CA9E1C842744005300D62875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9E1C822744005300D62875 /* Main.storyboard */; };
 		CA9E1C862744005500D62875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA9E1C852744005500D62875 /* Assets.xcassets */; };
 		CA9E1C892744005500D62875 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9E1C872744005500D62875 /* LaunchScreen.storyboard */; };
+		CA9E1C912744010700D62875 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E1C902744010700D62875 /* LoginViewModel.swift */; };
+		CA9E1C932744019F00D62875 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E1C922744019F00D62875 /* MainCoordinator.swift */; };
+		CAC87E5927469A2300FAA68F /* VKLoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC87E5827469A2300FAA68F /* VKLoginWebView.swift */; };
+		CAC87E5E27469C9200FAA68F /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC87E5D27469C9200FAA68F /* MainTabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		CA9E1C852744005500D62875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA9E1C882744005500D62875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA9E1C8A2744005500D62875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA9E1C902744010700D62875 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CA9E1C922744019F00D62875 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		CAC87E5827469A2300FAA68F /* VKLoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginWebView.swift; sourceTree = "<group>"; };
+		CAC87E5D27469C9200FAA68F /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,10 @@
 			isa = PBXGroup;
 			children = (
 				CA9E1C7C2744005300D62875 /* AppDelegate.swift */,
+				CAC87E5C27469C5F00FAA68F /* MainCoordinator */,
+				CAC87E5B27469C3700FAA68F /* LoginViewModel */,
+				CAC87E5A27469A3A00FAA68F /* VKLoginWebView */,
+				CAC87E5F27469CC300FAA68F /* MainTabBarView */,
 				CA9E1C7E2744005300D62875 /* SceneDelegate.swift */,
 				CA9E1C802744005300D62875 /* ViewController.swift */,
 				CA9E1C822744005300D62875 /* Main.storyboard */,
@@ -65,6 +77,38 @@
 				CA9E1C8A2744005500D62875 /* Info.plist */,
 			);
 			path = YSVKCoordinator;
+			sourceTree = "<group>";
+		};
+		CAC87E5A27469A3A00FAA68F /* VKLoginWebView */ = {
+			isa = PBXGroup;
+			children = (
+				CAC87E5827469A2300FAA68F /* VKLoginWebView.swift */,
+			);
+			path = VKLoginWebView;
+			sourceTree = "<group>";
+		};
+		CAC87E5B27469C3700FAA68F /* LoginViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA9E1C902744010700D62875 /* LoginViewModel.swift */,
+			);
+			path = LoginViewModel;
+			sourceTree = "<group>";
+		};
+		CAC87E5C27469C5F00FAA68F /* MainCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CA9E1C922744019F00D62875 /* MainCoordinator.swift */,
+			);
+			path = MainCoordinator;
+			sourceTree = "<group>";
+		};
+		CAC87E5F27469CC300FAA68F /* MainTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				CAC87E5D27469C9200FAA68F /* MainTabBarView.swift */,
+			);
+			path = MainTabBarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA9E1C912744010700D62875 /* LoginViewModel.swift in Sources */,
 				CA9E1C812744005300D62875 /* ViewController.swift in Sources */,
+				CAC87E5E27469C9200FAA68F /* MainTabBarView.swift in Sources */,
 				CA9E1C7D2744005300D62875 /* AppDelegate.swift in Sources */,
+				CA9E1C932744019F00D62875 /* MainCoordinator.swift in Sources */,
+				CAC87E5927469A2300FAA68F /* VKLoginWebView.swift in Sources */,
 				CA9E1C7F2744005300D62875 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
